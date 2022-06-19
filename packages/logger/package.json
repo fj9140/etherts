@@ -1,0 +1,29 @@
+{
+  "name": "@etherts/logger",
+  "version": "0.0.0",
+  "description": "Logger utility functions for ehters.",
+  "keywords": [
+    "Ethereum",
+    "ethers"
+  ],
+  "author": "LiHao <fj9140@163.com>",
+  "homepage": "https://github.com/fj9140/etherts#readme",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib.esm/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fj9140/etherts.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/fj9140/etherts/issues"
+  },
+  "types": "./lib/index.d.ts",
+  "devDependencies": {
+    "jest": "^28.1.1",
+    "typescript": "^4.7.4"
+  }
+}
