@@ -25,4 +25,15 @@ export class Logger{
     setLogLevel(logLevel:LogLevel):void{
         this._logLevel=logLevel;
     }
+
+    throwError(message:string){
+        throw this.makeError(message);
+    }
+
+    private makeError(message:string):Error{
+        const error:Error=new Error(message);
+        return error;
+    }
+
+
 }
