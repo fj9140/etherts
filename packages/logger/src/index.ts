@@ -1,39 +1,28 @@
 
 export enum LogLevel {
-    DEBUG    = "DEBUG",
-    INFO     = "INFO",
-    WARNING  = "WARNING",
-    ERROR    = "ERROR",
-    OFF      = "OFF"
+    DEBUG,
+    INFO ,
+    WARNING,
+    ERROR,
+    OFF
 }
 
 export class Logger{
 
-    static readonly levels=LogLevel;
-    private _logLevel:LogLevel;
+    private _logLevel:LogLevel=LogLevel.DEBUG;
 
     private _log(logLevel:LogLevel,args:Array<any>):void{
-        const level=logLevel.toUpperCase();
-        if(LogLevel[level]==null){
-            this.throwArgumentError('invalid log level name');
+        if(logLevel<this._logLevel){
+            return;
         }
         console.log.apply(console,args);
     }
 
     info(...args:Array<any>):void{
-        this._log(Logger.levels.INFO,args);
+        this._log(LogLevel.INFO,args);
     }
 
-    throwError(message:string){
-        throw this.makeError(message);
-    }
-
-    throwArgumentError(message:string){
-        return this.throwError(message);
-    }
-
-    makeError(message:string){
-        const error:Error=new Error(message);
-        return error;
+    setLogLevel(logLevel:LogLevel):void{
+        this._logLevel=logLevel;
     }
 }

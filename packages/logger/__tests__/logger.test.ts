@@ -1,8 +1,8 @@
-import { Logger } from "../src/index";
+import { Logger,LogLevel } from "../src/index";
 
 const logger=new Logger();
 
-describe("log test",()=>{
+describe("console log",()=>{
     const logger=new Logger();
     const log=console.log;
     beforeEach(()=>{
@@ -18,6 +18,11 @@ describe("log test",()=>{
         logger.info('something');
         expect(console.log).toHaveBeenCalledWith('something');
 
+    })
+    test("log level",()=>{
+        logger.setLogLevel(LogLevel.ERROR);
+        logger.info('no output');
+        expect(console.log).not.toHaveBeenCalled();
     })
 
 })
